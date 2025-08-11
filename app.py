@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly as pt
 import plotly.express as px
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -12,7 +13,7 @@ DATA_DIR.mkdir(exist_ok=True)
 POLICY_CSV = DATA_DIR / "policies.csv"
 CLAIMS_CSV = DATA_DIR / "claims.csv"
 
-st.set_page_config(page_title="Insurance Agent Dashboard", layout="wide")
+st.set_page_config(page_title="Nath Investment Dashboard", layout="wide")
 
 # ---------- sample data generator ----------
 def generate_sample_data():
@@ -96,7 +97,7 @@ mask = (
 filtered = policies[mask].copy()
 
 # ---------- KPIs ----------
-st.title("🏢 Insurance Agent Dashboard")
+st.title("🏢 Nath Investment Dashboard")
 col1, col2, col3, col4 = st.columns(4)
 total_policies = len(filtered)
 total_premium = filtered["annual_premium"].sum()
